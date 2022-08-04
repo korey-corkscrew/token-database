@@ -320,7 +320,7 @@ dataSources:
           file: firebirdFactory/abis/fireBirdFactory.json
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint32,uint32,uint256)
-          handler: handlePoolCreated
+          handler: handlePairCreated
       file: firebirdFactory/firebirdFactory.wasm
   - kind: ethereum
     name: bentoBoxFactory

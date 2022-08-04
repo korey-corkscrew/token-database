@@ -321,7 +321,7 @@ dataSources:
           file: ./abis/fireBirdFactory.json
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint32,uint32,uint256)    
-          handler: handlePoolCreated
+          handler: handlePairCreated
       file: ./src/fireBirdFactory.ts
 
   - kind: ethereum
