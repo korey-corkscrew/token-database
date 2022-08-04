@@ -42,6 +42,15 @@ export class Token extends Entity {
     this.set("id", Value.fromString(value));
   }
 
+  get pairCount(): BigInt {
+    let value = this.get("pairCount");
+    return value!.toBigInt();
+  }
+
+  set pairCount(value: BigInt) {
+    this.set("pairCount", Value.fromBigInt(value));
+  }
+
   get pairs(): Array<Bytes> | null {
     let value = this.get("pairs");
     if (!value || value.kind == ValueKind.NULL) {
@@ -91,6 +100,32 @@ export class Pair extends Entity {
     this.set("id", Value.fromString(value));
   }
 
+  get pairs(): Array<string> | null {
+    let value = this.get("pairs");
+    if (!value || value.kind == ValueKind.NULL) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set pairs(value: Array<string> | null) {
+    if (!value) {
+      this.unset("pairs");
+    } else {
+      this.set("pairs", Value.fromStringArray(<Array<string>>value));
+    }
+  }
+
+  get pairCount(): BigInt {
+    let value = this.get("pairCount");
+    return value!.toBigInt();
+  }
+
+  set pairCount(value: BigInt) {
+    this.set("pairCount", Value.fromBigInt(value));
+  }
+
   get token0(): Bytes {
     let value = this.get("token0");
     return value!.toBytes();
@@ -107,5 +142,105 @@ export class Pair extends Entity {
 
   set token1(value: Bytes) {
     this.set("token1", Value.fromBytes(value));
+  }
+}
+
+export class FactoryPair extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save FactoryPair entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type FactoryPair must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("FactoryPair", id.toString(), this);
+    }
+  }
+
+  static load(id: string): FactoryPair | null {
+    return changetype<FactoryPair | null>(store.get("FactoryPair", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get factory(): string {
+    let value = this.get("factory");
+    return value!.toString();
+  }
+
+  set factory(value: string) {
+    this.set("factory", Value.fromString(value));
+  }
+
+  get address(): Bytes {
+    let value = this.get("address");
+    return value!.toBytes();
+  }
+
+  set address(value: Bytes) {
+    this.set("address", Value.fromBytes(value));
+  }
+
+  get fee(): BigInt {
+    let value = this.get("fee");
+    return value!.toBigInt();
+  }
+
+  set fee(value: BigInt) {
+    this.set("fee", Value.fromBigInt(value));
+  }
+}
+
+export class Factory extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save Factory entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        `Entities of type Factory must have an ID of type String but the id '${id.displayData()}' is of type ${id.displayKind()}`
+      );
+      store.set("Factory", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Factory | null {
+    return changetype<Factory | null>(store.get("Factory", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get pairCount(): BigInt {
+    let value = this.get("pairCount");
+    return value!.toBigInt();
+  }
+
+  set pairCount(value: BigInt) {
+    this.set("pairCount", Value.fromBigInt(value));
   }
 }

@@ -139,56 +139,26 @@ export class factory extends ethereum.SmartContract {
     return ethereum.CallResult.fromValue(value[0].toAddress());
   }
 
-  getPair(param0: Address, param1: Address): Address {
+  getPair(tokenA: Address, tokenB: Address): Address {
     let result = super.call("getPair", "getPair(address,address):(address)", [
-      ethereum.Value.fromAddress(param0),
-      ethereum.Value.fromAddress(param1)
+      ethereum.Value.fromAddress(tokenA),
+      ethereum.Value.fromAddress(tokenB)
     ]);
 
     return result[0].toAddress();
   }
 
-  try_getPair(param0: Address, param1: Address): ethereum.CallResult<Address> {
+  try_getPair(tokenA: Address, tokenB: Address): ethereum.CallResult<Address> {
     let result = super.tryCall(
       "getPair",
       "getPair(address,address):(address)",
-      [ethereum.Value.fromAddress(param0), ethereum.Value.fromAddress(param1)]
+      [ethereum.Value.fromAddress(tokenA), ethereum.Value.fromAddress(tokenB)]
     );
     if (result.reverted) {
       return new ethereum.CallResult();
     }
     let value = result.value;
     return ethereum.CallResult.fromValue(value[0].toAddress());
-  }
-}
-
-export class ConstructorCall extends ethereum.Call {
-  get inputs(): ConstructorCall__Inputs {
-    return new ConstructorCall__Inputs(this);
-  }
-
-  get outputs(): ConstructorCall__Outputs {
-    return new ConstructorCall__Outputs(this);
-  }
-}
-
-export class ConstructorCall__Inputs {
-  _call: ConstructorCall;
-
-  constructor(call: ConstructorCall) {
-    this._call = call;
-  }
-
-  get _feeToSetter(): Address {
-    return this._call.inputValues[0].value.toAddress();
-  }
-}
-
-export class ConstructorCall__Outputs {
-  _call: ConstructorCall;
-
-  constructor(call: ConstructorCall) {
-    this._call = call;
   }
 }
 
@@ -247,7 +217,7 @@ export class SetFeeToCall__Inputs {
     this._call = call;
   }
 
-  get _feeTo(): Address {
+  get value0(): Address {
     return this._call.inputValues[0].value.toAddress();
   }
 }
@@ -277,7 +247,7 @@ export class SetFeeToSetterCall__Inputs {
     this._call = call;
   }
 
-  get _feeToSetter(): Address {
+  get value0(): Address {
     return this._call.inputValues[0].value.toAddress();
   }
 }

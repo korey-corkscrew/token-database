@@ -3,7 +3,7 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: undefined
+    name: quickFactory
     network: matic
     source:
       address: "0x5757371414417b8C6CAad45bAeF941aBc7d3Ab32"
@@ -21,7 +21,27 @@ dataSources:
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint256)
           handler: handlePairCreated
-      file: ./src/quickFactory.ts
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: apeFactory
+    network: matic
+    source:
+      address: "0xCf083Be4164828f00cAE704EC15a36D711491284"
+      abi: factory
+      startBlock: 15298801
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
   - kind: ethereum
     name: sushiFactory
     network: matic
@@ -41,4 +61,286 @@ dataSources:
       eventHandlers:
         - event: PairCreated(indexed address,indexed address,address,uint256)
           handler: handlePairCreated
-      file: ./src/sushiFactory.ts
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: comethFactory
+    network: matic
+    source:
+      address: "0x800b052609c355cA8103E06F022aA30647eAd60a"
+      abi: factory
+      startBlock: 11633169
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: dfynFactory
+    network: matic
+    source:
+      address: "0xE7Fb3e833eFE5F9c441105EB65Ef8b261266423B"
+      abi: factory
+      startBlock: 5436831
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: elkFactory
+    network: matic
+    source:
+      address: "0xE3BD06c7ac7E1CeB17BdD2E5BA83E40D1515AF2a"
+      abi: factory
+      startBlock: 13103735
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: jetswapFactory
+    network: matic
+    source:
+      address: "0x668ad0ed2622C62E24f0d5ab6B6Ac1b9D2cD4AC7"
+      abi: factory
+      startBlock: 16569374
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: polycatFactory
+    network: matic
+    source:
+      address: "0x477Ce834Ae6b7aB003cCe4BC4d8697763FF456FA"
+      abi: factory
+      startBlock: 17703715
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: radioShackFactory
+    network: matic
+    source:
+      address: "0xB581D0A3b7Ea5cDc029260e989f768Ae167Ef39B"
+      abi: factory
+      startBlock: 24980768
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts  
+  - kind: ethereum
+    name: waultswapFactory
+    network: matic
+    source:
+      address: "0xa98ea6356A316b44Bf710D5f9b6b4eA0081409Ef"
+      abi: factory
+      startBlock: 15474436
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: polydexFactory
+    network: matic
+    source:
+      address: "0x5BdD1CD910e3307582F213b33699e676E61deaD9"
+      abi: factory
+      startBlock: 17035187
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: vulcanFactory
+    network: matic
+    source:
+      address: "0x293f45b6F9751316672da58AE87447d712AF85D7"
+      abi: factory
+      startBlock: 19455293
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: factory
+          file: ./abis/factory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint256)
+          handler: handlePairCreated
+      file: ./src/uniswapV2Factory.ts
+  - kind: ethereum
+    name: kyberDmmFactory
+    network: matic
+    source:
+      address: "0x5F1fe642060B5B9658C15721Ea22E982643c095c"
+      abi: kyberDmmFactory
+      startBlock: 15968294
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PoolCreated
+      abis:
+        - name: kyberDmmFactory
+          file: ./abis/kyberDmmFactory.json
+      eventHandlers:
+        - event: PoolCreated(indexed address,indexed address,address,uint32,uint256)    
+          handler: handlePoolCreated
+      file: ./src/kyberDmmFactory.ts
+  - kind: ethereum
+    name: uniswapV3Factory
+    network: matic
+    source:
+      address: "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+      abi: uniswapV3Factory
+      startBlock: 22757547
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PoolCreated
+      abis:
+        - name: uniswapV3Factory
+          file: ./abis/uniswapV3Factory.json
+      eventHandlers:
+        - event: PoolCreated(indexed address,indexed address,indexed uint24,int24,address)    
+          handler: handlePoolCreated
+      file: ./src/uniswapV3Factory.ts
+  - kind: ethereum
+    name: kyberElasticFactory
+    network: matic
+    source:
+      address: "0x5F1dddbf348aC2fbe22a163e30F99F9ECE3DD50a"
+      abi: uniswapV3Factory
+      startBlock: 29347468
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PoolCreated
+      abis:
+        - name: uniswapV3Factory
+          file: ./abis/uniswapV3Factory.json
+      eventHandlers:
+        - event: PoolCreated(indexed address,indexed address,indexed uint24,int24,address)    
+          handler: handlePoolCreated
+      file: ./src/kyberElasticFactory.ts
+
+  - kind: ethereum
+    name: firebirdFactory
+    network: matic
+    source:
+      address: "0x5De74546d3B86C8Df7FEEc30253865e1149818C8"
+      abi: firebirdFactory
+      startBlock: 15139510
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - PairCreated
+      abis:
+        - name: firebirdFactory
+          file: ./abis/fireBirdFactory.json
+      eventHandlers:
+        - event: PairCreated(indexed address,indexed address,address,uint32,uint32,uint256)    
+          handler: handlePoolCreated
+      file: ./src/fireBirdFactory.ts
+
+  - kind: ethereum
+    name: bentoBoxFactory
+    network: matic
+    source:
+      address: "0x351447fc9bd20A917783E159e61E86EDDA0b0187"
+      abi: bentoBoxFactory
+      startBlock: 25840876
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - DeployPool
+      abis:
+        - name: bentoBoxFactory
+          file: ./abis/bentoBoxFactory.json
+      eventHandlers:
+        - event: DeployPool(indexed address,indexed address,bytes)    
+          handler: handleDeployPool
+      file: ./src/bentoBoxFactory.ts

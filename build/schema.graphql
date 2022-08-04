@@ -1,6 +1,7 @@
 type Token @entity {
   id: ID!
 
+  pairCount: BigInt!
   pairs: [Bytes!]
 }
 
@@ -8,6 +9,23 @@ type Pair @entity {
   # token0 - token1
   id: ID!
 
+  pairs: [FactoryPair!]
+  pairCount: BigInt!
   token0: Bytes!
   token1: Bytes!
+}
+
+type FactoryPair @entity {
+  id: ID!
+
+  factory: Factory!
+  address: Bytes!
+  fee: BigInt!
+}
+
+type Factory @entity {
+  # factory address
+  id: ID!
+
+  pairCount: BigInt!
 }
